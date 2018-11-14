@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.tiemsa.unilever.web.orden.OrdenBrowse"
+        focusComponent="ordensTable"
+        lookupComponent="ordensTable"
+        messagesPack="com.tiemsa.unilever.web.orden">
+    <dsContext>
+        <groupDatasource id="ordensDs"
+                         class="com.tiemsa.unilever.entity.Orden"
+                         view="orden-with-cliente">
+            <query>
+                <![CDATA[select e from unileverplantas$Orden e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="ordensTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="ordensTable"
+                datasource="ordensDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="ordensTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="fecha"/>
+                <column id="monto"/>
+                <column id="cliente"/>
+            </columns>
+            <rows datasource="ordensDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="ordensTable.create"/>
+                <button id="editBtn"
+                        action="ordensTable.edit"/>
+                <button id="removeBtn"
+                        action="ordensTable.remove"/>
+                <button id="refreshBtn"
+                        action="ordensTable.refresh"/>
+                <button id="excelBtn"
+                        action="ordensTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

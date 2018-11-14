@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.tiemsa.unilever.entity.Orden"
+          extends="_local"
+          name="orden-with-cliente">
+        <property name="cliente"
+                  view="_minimal"/>
+    </view>
+</views>

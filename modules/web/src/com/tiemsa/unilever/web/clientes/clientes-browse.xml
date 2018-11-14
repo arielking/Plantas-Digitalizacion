@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.tiemsa.unilever.web.clientes.ClientesBrowse"
+        focusComponent="clientesesTable"
+        lookupComponent="clientesesTable"
+        messagesPack="com.tiemsa.unilever.web.clientes">
+    <dsContext>
+        <groupDatasource id="clientesesDs"
+                         class="com.tiemsa.unilever.entity.Clientes"
+                         view="_local">
+            <query>
+                <![CDATA[select e from unileverplantas$Clientes e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="clientesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="clientesesTable"
+                datasource="clientesesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="clientesesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+                <action id="refresh"/>
+            </actions>
+            <columns>
+                <column id="nombre"/>
+                <column id="email"/>
+            </columns>
+            <rows datasource="clientesesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="clientesesTable.create"/>
+                <button id="editBtn"
+                        action="clientesesTable.edit"/>
+                <button id="removeBtn"
+                        action="clientesesTable.remove"/>
+                <button id="excelBtn"
+                        action="clientesesTable.excel"/>
+                <button id="refreshBtn"
+                        action="clientesesTable.refresh"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <screen id="unileverplantas$Clientes.browse"
+            template="com/tiemsa/unilever/web/clientes/clientes-browse.xml"/>
+    <screen id="unileverplantas$Clientes.edit"
+            template="com/tiemsa/unilever/web/clientes/clientes-edit.xml"/>
+    <screen id="unileverplantas$Orden.browse"
+            template="com/tiemsa/unilever/web/orden/orden-browse.xml"/>
+    <screen id="unileverplantas$Orden.edit"
+            template="com/tiemsa/unilever/web/orden/orden-edit.xml"/>
+</screen-config>

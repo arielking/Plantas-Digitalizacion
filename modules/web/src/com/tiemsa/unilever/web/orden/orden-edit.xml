@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.tiemsa.unilever.web.orden.OrdenEdit"
+        datasource="ordenDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.tiemsa.unilever.web.orden">
+    <dsContext>
+        <datasource id="ordenDs"
+                    class="com.tiemsa.unilever.entity.Orden"
+                    view="orden-with-cliente"/>
+        <collectionDatasource id="clientesDs"
+                              class="com.tiemsa.unilever.entity.Clientes"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from unileverplantas$Clientes e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode forceDialog="true"
+                height="AUTO"
+                width="AUTO"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="ordenDs">
+            <column width="250px">
+                <field property="fecha"/>
+                <field property="monto"/>
+                <field optionsDatasource="clientesDs"
+                       property="cliente"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"
+               width="AUTO"/>
+    </layout>
+</window>
