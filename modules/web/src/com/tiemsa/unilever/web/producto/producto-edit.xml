@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.tiemsa.unilever.web.producto.ProductoEdit"
+        datasource="productoDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.tiemsa.unilever.web.producto">
+    <dsContext>
+        <datasource id="productoDs"
+                    class="com.tiemsa.unilever.entity.Producto"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode forceDialog="true"
+                height="AUTO"
+                modal="true"
+                width="600"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="productoDs">
+            <column width="250px">
+                <field property="nombre"/>
+                <field property="precio"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

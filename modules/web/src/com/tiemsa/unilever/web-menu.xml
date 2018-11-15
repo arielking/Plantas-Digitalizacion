@@ -4,5 +4,6 @@
           insertBefore="administration">
         <item screen="unileverplantas$Clientes.browse"/>
         <item screen="unileverplantas$Orden.browse"/>
+        <item screen="unileverplantas$Producto.browse"/>
     </menu>
 </menu-config>

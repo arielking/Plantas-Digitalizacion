@@ -5,5 +5,21 @@
           name="orden-with-cliente">
         <property name="cliente"
                   view="_minimal"/>
+        <property name="linea"
+                  view="_local"/>
+    </view>
+    <view class="com.tiemsa.unilever.entity.OrdenLinea"
+          extends="_local"
+          name="ordenLinea-with-producto">
+        <property name="producto"
+                  view="_local"/>
+    </view>
+    <view class="com.tiemsa.unilever.entity.Orden"
+          extends="_local"
+          name="orden-edit">
+        <property name="cliente"
+                  view="_minimal"/>
+        <property name="linea"
+                  view="ordenLinea-with-producto"/>
     </view>
 </views>

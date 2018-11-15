@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.tiemsa.unilever.web.producto.ProductoBrowse"
+        focusComponent="productoesTable"
+        lookupComponent="productoesTable"
+        messagesPack="com.tiemsa.unilever.web.producto">
+    <dsContext>
+        <groupDatasource id="productoesDs"
+                         class="com.tiemsa.unilever.entity.Producto"
+                         view="_local">
+            <query>
+                <![CDATA[select e from unileverplantas$Producto e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="productoesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="productoesTable"
+                datasource="productoesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="productoesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="nombre"/>
+                <column id="precio"/>
+            </columns>
+            <rows datasource="productoesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="productoesTable.create"/>
+                <button id="editBtn"
+                        action="productoesTable.edit"/>
+                <button id="removeBtn"
+                        action="productoesTable.remove"/>
+                <button id="refreshBtn"
+                        action="productoesTable.refresh"/>
+                <button id="excelBtn"
+                        action="productoesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

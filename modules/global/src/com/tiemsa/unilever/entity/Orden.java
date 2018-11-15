@@ -14,6 +14,11 @@ import com.haulmont.cuba.core.entity.annotation.LookupType;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import com.haulmont.chile.core.annotations.Composition;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
+import java.util.List;
+import javax.persistence.OneToMany;
 
 @Table(name = "UNILEVERPLANTAS_ORDEN")
 @Entity(name = "unileverplantas$Orden")
@@ -34,6 +39,20 @@ public class Orden extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CLIENTE_ID")
     protected Clientes cliente;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "orden")
+    protected List<OrdenLinea> linea;
+
+    public void setLinea(List<OrdenLinea> linea) {
+        this.linea = linea;
+    }
+
+    public List<OrdenLinea> getLinea() {
+        return linea;
+    }
+
 
     public void setCliente(Clientes cliente) {
         this.cliente = cliente;

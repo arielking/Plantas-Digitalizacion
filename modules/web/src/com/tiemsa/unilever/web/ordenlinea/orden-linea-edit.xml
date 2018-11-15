@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.tiemsa.unilever.web.ordenlinea.OrdenLineaEdit"
+        datasource="ordenLineaDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.tiemsa.unilever.web.ordenlinea">
+    <dsContext>
+        <datasource id="ordenLineaDs"
+                    class="com.tiemsa.unilever.entity.OrdenLinea"
+                    view="ordenLinea-with-producto"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="ordenLineaDs">
+            <column width="250px">
+                <field property="producto"/>
+                <field property="cantidad"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

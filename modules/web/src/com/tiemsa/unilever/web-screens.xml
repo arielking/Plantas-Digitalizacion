@@ -8,4 +8,10 @@
             template="com/tiemsa/unilever/web/orden/orden-browse.xml"/>
     <screen id="unileverplantas$Orden.edit"
             template="com/tiemsa/unilever/web/orden/orden-edit.xml"/>
+    <screen id="unileverplantas$Producto.browse"
+            template="com/tiemsa/unilever/web/producto/producto-browse.xml"/>
+    <screen id="unileverplantas$Producto.edit"
+            template="com/tiemsa/unilever/web/producto/producto-edit.xml"/>
+    <screen id="unileverplantas$OrdenLinea.edit"
+            template="com/tiemsa/unilever/web/ordenlinea/orden-linea-edit.xml"/>
 </screen-config>

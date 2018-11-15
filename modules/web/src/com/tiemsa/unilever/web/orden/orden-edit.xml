@@ -8,7 +8,10 @@
     <dsContext>
         <datasource id="ordenDs"
                     class="com.tiemsa.unilever.entity.Orden"
-                    view="orden-with-cliente"/>
+                    view="orden-edit">
+            <collectionDatasource id="lineaDs"
+                                  property="linea"/>
+        </datasource>
         <collectionDatasource id="clientesDs"
                               class="com.tiemsa.unilever.entity.Clientes"
                               view="_minimal">
@@ -31,6 +34,29 @@
                        property="cliente"/>
             </column>
         </fieldGroup>
+        <groupBox id="lineaBox"
+                  caption="msg://com.tiemsa.unilever.entity/Orden.linea">
+            <table id="lineaTable"
+                   height="200px"
+                   width="350px">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="producto.nombre"/>
+                    <column id="producto.precio"/>
+                    <column id="cantidad"/>
+                </columns>
+                <rows datasource="lineaDs"/>
+                <buttonsPanel>
+                    <button action="lineaTable.create"/>
+                    <button action="lineaTable.edit"/>
+                    <button action="lineaTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <frame id="windowActions"
                screen="editWindowActions"
                width="AUTO"/>

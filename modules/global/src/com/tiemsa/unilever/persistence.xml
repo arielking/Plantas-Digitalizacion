@@ -5,5 +5,7 @@
                       transaction-type="RESOURCE_LOCAL">
         <class>com.tiemsa.unilever.entity.Clientes</class>
         <class>com.tiemsa.unilever.entity.Orden</class>
+        <class>com.tiemsa.unilever.entity.Producto</class>
+        <class>com.tiemsa.unilever.entity.OrdenLinea</class>
     </persistence-unit>
 </persistence>
